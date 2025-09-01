@@ -30,6 +30,19 @@ export function formatDay(dateStr: string): string {
   }).format(new Date(dateStr));
 }
 
+export function formatDateWithDay(dateStr: string): string {
+  const date = new Date(dateStr);
+  const dayName = new Intl.DateTimeFormat("en", {
+    weekday: "short",
+  }).format(date);
+  const dayNumber = date.getDate();
+  const monthName = new Intl.DateTimeFormat("en", {
+    month: "short",
+  }).format(date);
+
+  return `${dayName} ${dayNumber} ${monthName}`;
+}
+
 export function getWindDirection(degrees: number): string {
   const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   const index = Math.round(degrees / 45) % 8;

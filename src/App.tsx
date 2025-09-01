@@ -15,7 +15,6 @@ function App() {
   const { loading, error, weatherData, locationData, getWeather, clearData } =
     useWeather();
 
-  // Update document title when location changes
   useEffect(() => {
     if (locationData) {
       document.title = `${locationData.name} - WeatherPal`;
@@ -25,7 +24,7 @@ function App() {
   }, [locationData]);
 
   return (
-    <div className="flex flex-col items-center py-8 gap-8 w-full max-w-6xl mx-auto px-4">
+    <div className="flex flex-col items-center pt-4 lg:pt-8 pb-8 gap-4 w-full max-w-6xl mx-auto px-4">
       <div className="text-center">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-white mb-2 tracking-tight">
           {locationData ? locationData.name : "Weather"}

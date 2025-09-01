@@ -1,5 +1,9 @@
 import type { WeatherData, LocationData } from "../types/weather";
-import { getWeatherIcon, getWindDirection } from "../utils/weather";
+import {
+  getWeatherIcon,
+  getWindDirection,
+  formatDateWithDay,
+} from "../utils/weather";
 
 interface CurrentWeatherProps {
   weatherData: WeatherData;
@@ -11,9 +15,16 @@ export function CurrentWeather({ weatherData }: CurrentWeatherProps) {
 
   if (!current) return null;
 
+  const today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
+
   return (
     <div className="w-full max-w-4xl mx-auto mb-8">
       <div className="bg-white/5 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/10">
+        <div className="text-center mb-6">
+          <div className="text-lg text-white/60 font-light">
+            {formatDateWithDay(today)}
+          </div>
+        </div>
         <div className="flex items-center justify-between mb-8">
           <div>
             <div className="text-7xl sm:text-8xl font-ultralight text-white mb-3 tracking-tighter">
