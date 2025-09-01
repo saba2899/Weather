@@ -1,5 +1,5 @@
 import type { WeatherData, LocationData } from "../types/weather";
-import { getWeatherIcon, formatDay, formatDateWithDay } from "../utils/weather";
+import { getWeatherIcon, formatDateWithDay } from "../utils/weather";
 
 interface WeatherDisplayProps {
   weatherData: WeatherData;
